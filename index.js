@@ -181,43 +181,6 @@ function WhoAmIIntent(alexaResponse){
 }
 
 function ListNoteBooksIntent(alexaResponse){
-        // get the authenticated user info
-        getUser(alexaResponse)
-        // **
-        // handle the getUser results
-        .then(function(user){
-            //check if the user is valid
-            if(!user) throw "There is no user returned ";
-
-            // then send a mail to the current user           
-            //return sendMail(user);
-        })
-        .catch(function(err){
-            log("ListNoteBooksIntent getUser Error: " + JSON.stringify(err), logLevels.error);
-            alexaResponse.emit(":tell", "There was an error. " + err.message)
-            // re-throw the error so the chain of promises don't continue
-            throw "There was a getuser catch error: " + JSON.stringify(err);
-        })
-
-        // handle the sendMail results
-        .then(function(mail){
-            // check if the sendmail succeded
-            if(!mail) throw "There was an error sending mail";
-
-            // then send confirmation back to alexa
-            var mailSubject = mail.Message.Subject;
-            log("Mail Sent: " + JSON.stringify(mail), logLevels.debug);
-            //return the results to Alexa
-            VoiceInsights.track("sendMailIntent", null, null, (error, response) => {
-                return alexaResponse.emit(":tell", "Mail sent to you with a subject of " + mailSubject);
-            });
-        })
-        .catch(function(err){
-            log("sendMail Error: " + JSON.stringify(err), logLevels.error);
-            alexaResponse.emit(":tell", "There was an error sending the mail");
-            // re-throw the error so the chain of promises don't continue
-            throw "There was an sendmail catch error: " + JSON.stringify(err);
-        })
     getNoteBooks()
     	.then(function(noteBooks){
     		if(!noteBooks) throw "There were no notebooks returned";
