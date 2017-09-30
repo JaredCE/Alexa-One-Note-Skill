@@ -1,8 +1,8 @@
 {
-  "name": "alexa-one-note-skill",
+  "name": "Recipe-Notes",
   "version": "1.0.0",
   "private": true,
-  "description": "Microsoft Graph Connect One Note for Amazon Alexa",
+  "description": "Recipe Notes: A Microsoft Graph Connect to One Note for Amazon Alexa",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
