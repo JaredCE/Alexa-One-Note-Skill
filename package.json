@@ -1,0 +1,17 @@
+{
+  "name": "alexa-one-note-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Microsoft Graph Connect One Note for Amazon Alexa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jared Evans",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "*",
+    "msgraph-sdk-javascript": "*",
+    "voice-insights-sdk": "*"
+  }
+}
